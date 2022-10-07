@@ -13,7 +13,7 @@ const laenorStatusBtn = document.getElementById('laenor-status')
 const laenaBioBtn = document.getElementById('laena-bio')
 const laenaStatusBtn = document.getElementById('laena-status')
 
-// Text 
+// Text-related
 const rhaenyraBioTxt = document.getElementById('rhaenyra-bio-t')
 const rhaenyraStatusTxt = document.getElementById('rhaenyra-status-t')
 const alicentBioTxt = document.getElementById('alicent-bio-t')
@@ -27,18 +27,23 @@ const laenorStatusTxt = document.getElementById('laenor-status-t')
 const laenaBioTxt = document.getElementById('laena-bio-t')
 const laenaStatusTxt = document.getElementById('laena-status-t')
 
-// Search
+// Search-related
 const searchInput = document.getElementById('searchInput')
 const submitBtn = document.getElementById('submit')
 
-
+// Function to search by character
 const search = () => {
+    // grab all character cards
     const charactersArr = document.querySelectorAll('.character')
+    // change user's search input to lower case
     const charSearch = searchInput.value.toLowerCase()
     charactersArr.forEach(character => {
+        // grab each character card's h2 text in lower case
         const h2 = character.firstElementChild.innerText.toLowerCase()
+        // if h2 does not include user's search term(s), hide the character
         if (!h2.includes(charSearch)) {
             character.classList.add('hide')
+        // if it does include, show the character
         } else {
             character.classList.remove('hide')
         }
@@ -50,11 +55,15 @@ submitBtn.addEventListener('click', search)
 
 
 rhaenyraBioBtn.addEventListener('click', () => {
+    // if text div has a classname, then remove it
     if (rhaenyraBioTxt.className) {
         rhaenyraBioTxt.classList.remove('hide')
+        // disable the other button when text is being shown
         rhaenyraStatusBtn.disabled = true
+    // if text div has no classname, add one
     } else {
         rhaenyraBioTxt.classList.add('hide')
+        // enable the other button when text is hidden
         rhaenyraStatusBtn.disabled = false
     }
 })
