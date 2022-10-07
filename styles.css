@@ -6,7 +6,12 @@ body {
 
 h1 {
     color: white;
-    font-size: 3em;
+    font-size: 3.5em;
+    font-family: 'Berkshire Swash', cursive;
+}
+h2 {
+    font-family: 'Berkshire Swash', cursive;
+    font-size: 1.8em;
 }
 
 button {
@@ -20,6 +25,7 @@ button {
 
 button:disabled {
     background-color: grey;
+    color: whitesmoke
 }
 
 input {
