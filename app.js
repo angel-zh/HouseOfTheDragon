@@ -28,18 +28,27 @@ const laenaBioTxt = document.getElementById('laena-bio-t')
 const laenaStatusTxt = document.getElementById('laena-status-t')
 
 // Search
-const searchInput = document.getElementById('search')
+const searchInput = document.getElementById('searchInput')
 const submitBtn = document.getElementById('submit')
 
-// const showBio = (character) => {
-//     if(`${character}BioTxt`.className) {
-//         `${character}BioTxt`.classList.remove('hide')
-//     } else {
-//         `${character}BioTxt`.classList.add('hide')
-//     }
-// }
+
+const search = () => {
+    const charactersArr = document.querySelectorAll('.character')
+    const charSearch = searchInput.value.toLowerCase()
+    charactersArr.forEach(character => {
+        const h2 = character.firstElementChild.innerText.toLowerCase()
+        if (!h2.includes(charSearch)) {
+            character.classList.add('hide')
+        } else {
+            character.classList.remove('hide')
+        }
+    })
+}
 
 // Event Listeners
+submitBtn.addEventListener('click', search)
+
+
 rhaenyraBioBtn.addEventListener('click', () => {
     if (rhaenyraBioTxt.className) {
         rhaenyraBioTxt.classList.remove('hide')

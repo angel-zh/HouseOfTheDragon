@@ -43,7 +43,6 @@ img {
 }
 
 .character {
-    position: relative;
     background-color: white;
     border-radius: 5px;
     padding-bottom: 10px;
